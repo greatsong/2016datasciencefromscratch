@@ -1,6 +1,5 @@
 from __future__ import division
 
-
 users = [
     {"id":0, "name": "Hero"},
     {"id":1, "name": "Dunn"},
@@ -34,4 +33,13 @@ total_connections = sum(numbers_of_friends(user)
 num_users = len(users)
 avg_connections = total_connections / num_users
 print(avg_connections)
+
+num_friends_by_id = [(user["id"], numbers_of_friends(user))
+                     for user in users]
+
+a = sorted(num_friends_by_id,
+       key = lambda (user_id, num_f): num_f,
+       reverse=True)
+
+print(a)
 
